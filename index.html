@@ -1,1 +1,91 @@
-<!doctype html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mi web</title></head><body><h1>Hola, esta es mi primera web 🚀</h1></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dorado División</title>
+  <style>
+    :root{
+      --bg:#0f172a;
+      --card:#111827;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --gold:#f59e0b;
+      --gold2:#fbbf24;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:linear-gradient(180deg,#0b1022,var(--bg));
+      color:var(--text);
+    }
+    .container{max-width:1100px;margin:auto;padding:24px}
+    header{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:14px 24px;background:rgba(17,24,39,.7);backdrop-filter: blur(6px);
+      position:sticky;top:0;border-bottom:1px solid #1f2937;
+    }
+    .logo{font-weight:700;color:var(--gold2)}
+    nav a{color:var(--text);text-decoration:none;margin-left:16px}
+    nav a:hover{color:var(--gold2)}
+    .hero{
+      padding:80px 24px;text-align:center;
+    }
+    .hero h1{font-size:46px;margin:0 0 12px}
+    .hero p{color:var(--muted);font-size:18px;max-width:700px;margin:0 auto 24px}
+    .btn{
+      display:inline-block;padding:12px 20px;border-radius:10px;
+      background:linear-gradient(90deg,var(--gold),var(--gold2));
+      color:#111827;text-decoration:none;font-weight:700;
+    }
+    .grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:16px;margin-top:30px;
+    }
+    .card{
+      background:rgba(17,24,39,.8);border:1px solid #1f2937;border-radius:14px;padding:18px;
+    }
+    .card h3{margin-top:0;color:var(--gold2)}
+    footer{
+      border-top:1px solid #1f2937;margin-top:40px;padding:20px 24px;color:var(--muted);text-align:center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Dorado División</div>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Servicios</a>
+      <a href="#">Portafolio</a>
+      <a href="#">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="hero container">
+    <h1>Impulsamos tu presencia digital</h1>
+    <p>Diseño web moderno, rápido y enfocado en resultados para tu marca o negocio.</p>
+    <a class="btn" href="#">Solicitar propuesta</a>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Diseño Web</h3>
+        <p>Landing pages y sitios corporativos con estilo profesional.</p>
+      </div>
+      <div class="card">
+        <h3>Optimización</h3>
+        <p>Velocidad, SEO básico y estructura lista para crecer.</p>
+      </div>
+      <div class="card">
+        <h3>Soporte</h3>
+        <p>Acompañamiento para cambios, mejoras y publicación continua.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Dorado División — Todos los derechos reservados.
+  </footer>
+</body>
+</html>
