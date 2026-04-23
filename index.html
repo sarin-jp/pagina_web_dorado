@@ -3,89 +3,124 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dorado División</title>
+  <title>Pagina Web Dorado</title>
   <style>
     :root{
-      --bg:#0f172a;
-      --card:#111827;
-      --text:#e5e7eb;
-      --muted:#9ca3af;
-      --gold:#f59e0b;
-      --gold2:#fbbf24;
+      --bg:#0f172a; --card:#111827; --text:#e5e7eb; --muted:#9ca3af; --gold:#f59e0b; --gold2:#fbbf24;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      background:linear-gradient(180deg,#0b1022,var(--bg));
-      color:var(--text);
-    }
-    .container{max-width:1100px;margin:auto;padding:24px}
-    header{
-      display:flex;justify-content:space-between;align-items:center;
-      padding:14px 24px;background:rgba(17,24,39,.7);backdrop-filter: blur(6px);
-      position:sticky;top:0;border-bottom:1px solid #1f2937;
-    }
+    *{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#0b1022,var(--bg));color:var(--text)}
+    header{position:sticky;top:0;background:#111827;border-bottom:1px solid #1f2937;z-index:10}
+    .top{max-width:1200px;margin:auto;padding:14px 20px;display:flex;justify-content:space-between;align-items:center}
     .logo{font-weight:700;color:var(--gold2)}
-    nav a{color:var(--text);text-decoration:none;margin-left:16px}
-    nav a:hover{color:var(--gold2)}
-    .hero{
-      padding:80px 24px;text-align:center;
+    nav{display:flex;gap:10px;flex-wrap:wrap}
+    nav button{
+      background:#1f2937;color:#e5e7eb;border:1px solid #374151;padding:8px 12px;border-radius:10px;cursor:pointer
     }
-    .hero h1{font-size:46px;margin:0 0 12px}
-    .hero p{color:var(--muted);font-size:18px;max-width:700px;margin:0 auto 24px}
-    .btn{
-      display:inline-block;padding:12px 20px;border-radius:10px;
-      background:linear-gradient(90deg,var(--gold),var(--gold2));
-      color:#111827;text-decoration:none;font-weight:700;
-    }
-    .grid{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:16px;margin-top:30px;
-    }
-    .card{
-      background:rgba(17,24,39,.8);border:1px solid #1f2937;border-radius:14px;padding:18px;
-    }
-    .card h3{margin-top:0;color:var(--gold2)}
-    footer{
-      border-top:1px solid #1f2937;margin-top:40px;padding:20px 24px;color:var(--muted);text-align:center;
-    }
+    nav button.active, nav button:hover{background:linear-gradient(90deg,var(--gold),var(--gold2));color:#111827;border:none}
+    .container{max-width:1200px;margin:auto;padding:24px}
+    .hero{background:rgba(17,24,39,.75);border:1px solid #1f2937;border-radius:16px;padding:24px}
+    h1,h2{margin-top:0}
+    .muted{color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
+    .card{background:rgba(17,24,39,.85);border:1px solid #1f2937;border-radius:14px;padding:14px}
+    .imgbox{aspect-ratio:4/3;background:#0b1220;border:1px dashed #374151;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#9ca3af;font-size:13px;text-align:center;padding:10px}
+    footer{border-top:1px solid #1f2937;color:var(--muted);text-align:center;padding:18px;margin-top:24px}
+    .hidden{display:none}
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">Dorado División</div>
-    <nav>
-      <a href="#">Inicio</a>
-      <a href="#">Servicios</a>
-      <a href="#">Portafolio</a>
-      <a href="#">Contacto</a>
-    </nav>
+    <div class="top">
+      <div class="logo">Dorado División</div>
+      <nav>
+        <button class="tab active" data-tab="inicio">Inicio</button>
+        <button class="tab" data-tab="azucar">Azúcar</button>
+        <button class="tab" data-tab="catalogo">Catálogo de frutas</button>
+        <button class="tab" data-tab="colaboradores">Colaboradores</button>
+        <button class="tab" data-tab="deshidratados">Deshidratados</button>
+        <button class="tab" data-tab="fresca">Fruta fresca</button>
+      </nav>
+    </div>
   </header>
 
-  <section class="hero container">
-    <h1>Impulsamos tu presencia digital</h1>
-    <p>Diseño web moderno, rápido y enfocado en resultados para tu marca o negocio.</p>
-    <a class="btn" href="#">Solicitar propuesta</a>
+  <main class="container">
+    <!-- INICIO -->
+    <section id="inicio" class="panel">
+      <div class="hero">
+        <h1>Bienvenidos</h1>
+        <p class="muted">Aquí irá el texto de <strong>quienes somos.txt</strong> mezclado con la presentación de la empresa.</p>
+        <h2>Quiénes somos</h2>
+        <p id="quienesSomosTexto">
+          Pega aquí el contenido de tu archivo <strong>quienes somos.txt</strong> y yo luego te lo dejo redactado bonito.
+        </p>
+      </div>
+    </section>
 
-    <div class="grid">
-      <div class="card">
-        <h3>Diseño Web</h3>
-        <p>Landing pages y sitios corporativos con estilo profesional.</p>
+    <!-- AZUCAR -->
+    <section id="azucar" class="panel hidden">
+      <h2>Azúcar</h2>
+      <p class="muted">Selección destacada de productos e imágenes.</p>
+      <div class="grid">
+        <article class="card"><div class="imgbox">Imagen 1 (contenido/Azucar/...)</div><h3>Producto 1</h3><p>Descripción breve.</p></article>
+        <article class="card"><div class="imgbox">Imagen 2</div><h3>Producto 2</h3><p>Descripción breve.</p></article>
+        <article class="card"><div class="imgbox">Imagen 3</div><h3>Producto 3</h3><p>Descripción breve.</p></article>
       </div>
-      <div class="card">
-        <h3>Optimización</h3>
-        <p>Velocidad, SEO básico y estructura lista para crecer.</p>
-      </div>
-      <div class="card">
-        <h3>Soporte</h3>
-        <p>Acompañamiento para cambios, mejoras y publicación continua.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    © 2026 Dorado División — Todos los derechos reservados.
-  </footer>
+    <!-- CATALOGO -->
+    <section id="catalogo" class="panel hidden">
+      <h2>Catálogo de frutas</h2>
+      <div class="grid">
+        <article class="card"><div class="imgbox">Imagen destacada 1</div><h3>Fruta A</h3></article>
+        <article class="card"><div class="imgbox">Imagen destacada 2</div><h3>Fruta B</h3></article>
+        <article class="card"><div class="imgbox">Imagen destacada 3</div><h3>Fruta C</h3></article>
+      </div>
+    </section>
+
+    <!-- COLABORADORES -->
+    <section id="colaboradores" class="panel hidden">
+      <h2>Colaboradores</h2>
+      <div class="grid">
+        <article class="card"><div class="imgbox">Logo/foto colaborador 1</div><h3>Colaborador 1</h3></article>
+        <article class="card"><div class="imgbox">Logo/foto colaborador 2</div><h3>Colaborador 2</h3></article>
+      </div>
+    </section>
+
+    <!-- DESHIDRATADOS -->
+    <section id="deshidratados" class="panel hidden">
+      <h2>Deshidratados</h2>
+      <div class="grid">
+        <article class="card"><div class="imgbox">Imagen 1</div><h3>Producto D1</h3></article>
+        <article class="card"><div class="imgbox">Imagen 2</div><h3>Producto D2</h3></article>
+        <article class="card"><div class="imgbox">Imagen 3</div><h3>Producto D3</h3></article>
+      </div>
+    </section>
+
+    <!-- FRUTA FRESCA -->
+    <section id="fresca" class="panel hidden">
+      <h2>Fruta fresca</h2>
+      <div class="grid">
+        <article class="card"><div class="imgbox">Imagen 1</div><h3>Producto F1</h3></article>
+        <article class="card"><div class="imgbox">Imagen 2</div><h3>Producto F2</h3></article>
+        <article class="card"><div class="imgbox">Imagen 3</div><h3>Producto F3</h3></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 Dorado División</footer>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const panels = document.querySelectorAll('.panel');
+    tabs.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        tabs.forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const id = btn.dataset.tab;
+        panels.forEach(p=>p.classList.add('hidden'));
+        document.getElementById(id).classList.remove('hidden');
+      });
+    });
+  </script>
 </body>
 </html>
