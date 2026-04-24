@@ -29,7 +29,7 @@
       text-decoration: none;
       color: white;
       font-size: 1em;
-      padding: 8px 15px;
+      padding: 0.5em 1em;
       border-radius: 5px;
       transition: background-color 0.3s, color 0.3s;
     }
@@ -39,19 +39,12 @@
       color: #000;
     }
 
-    section {
+    section.carousel {
       height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
       padding: 20px;
       background-size: cover;
       background-position: center;
       position: relative;
-    }
-
-    section.carousel {
       animation: slideShow 30s infinite;
     }
 
@@ -67,66 +60,55 @@
     section::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
+      background: rgba(0, 0, 0, 0.4);
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.4);
       z-index: 1;
     }
 
     .content {
-      position: relative;
       z-index: 2;
       max-width: 80%;
     }
 
     h1 {
       font-size: 3em;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
-    h2 {
-      font-size: 2em;
-      margin: 20px 0 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
     }
 
     p {
-      font-size: 1.1em;
-      margin: 15px 0;
+      font-size: 1.2em;
     }
 
     .categories {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
       margin-top: 50px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     .category-card {
-      background-color: #444;
-      color: white;
+      display: block;
+      margin: 15px;
+      width: 180px;
+      background: rgba(255, 165, 0, 0.9);
       padding: 20px;
-      border-radius: 10px;
+      color: black;
       text-decoration: none;
-      font-size: 1.3em;
       text-align: center;
-      width: 200px;
+      border-radius: 10px;
+      font-weight: bold;
       transition: transform 0.3s;
     }
 
     .category-card:hover {
       transform: scale(1.1);
-      background-color: #f59e0b;
-      color: black;
     }
 
     footer {
       text-align: center;
       background-color: #222;
       padding: 20px 0;
-      color: white;
     }
   </style>
 </head>
@@ -141,40 +123,18 @@
     <a href="pulpa.html" class="nav-link">Pulpa de Fruta</a>
   </header>
 
-  <!-- Slideshow Section -->
+  <!-- Slideshow + Who We Are Section -->
   <section class="carousel">
     <div class="content">
       <h1>Bienvenido a Dorado Division</h1>
       <p>
-        Dorado División es una empresa familiar fundada en 1992, en el corazón del Valle del Cauca, en Colombia, cuna estratégica de los mejores productores de frutas frescas gracias a su tierra fértil y su clima único.
+        Dorado División fue fundada en 1992 en el Valle de Cauca, exportando excelencia a nivel internacional.  
+        Nuestra misión siempre ha sido ofrecer frutas de calidad y fortalecer comunidades.  
       </p>
-      <p>
-        Desde nuestros inicios, trabajamos con productores locales, promoviendo siempre la calidad y sostenibilidad en cada proceso. Durante décadas, hemos construido alianzas estratégicas con diversas naciones de América Latina, exportando lo mejor del trópico hacia los mercados globales.
-      </p>
-      <p>
-        Misión: Ofrecer pulpa de fruta natural, 100% fresca de origen colombiano, garantizando calidad y cumpliendo con procesos estrictos de certificación a nivel internacional en las mejores condiciones.
-      </p>
-      <p>
-        Visión: Potenciar las comunidades, fortalecer relaciones internacionales e inspirar hábitos saludables mediante la excelencia de nuestros productos tropicales.
-      </p>
+
     </div>
+     <!-- Div Categorías menos manten queda un css --- Ju-sour -->
   </section>
 
-  <!-- Categories Section -->
-  <section style="background-color: #222; padding: 50px; color: white;">
-    <h2>Explora nuestras categorías</h2>
-    <div class="categories">
-      <a href="azucar.html" class="category-card">Azúcar</a>
-      <a href="catalogo.html" class="category-card">Catálogo de Frutas</a>
-      <a href="colaboradores.html" class="category-card">Colaboradores</a>
-      <a href="deshidratados.html" class="category-card">Deshidratados</a>
-      <a href="fresca.html" class="category-card">Fruta Fresca</a>
-      <a href="pulpa.html" class="category-card">Pulpa de Fruta</a>
-    </div>
-  </section>
+<footer></html body?>
 
-  <footer>
-    © 2026 Dorado Division | Transformando frutas, creando valor.
-  </footer>
-</body>
-</html>
