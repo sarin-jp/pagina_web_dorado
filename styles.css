@@ -1,0 +1,364 @@
+/* ============================================================
+   Dorado División – Estilos compartidos
+   Paleta: fondo negro #000, acento naranja #ffa500, texto blanco
+   ============================================================ */
+
+/* ---------- Reset & base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #fff;
+  background-color: #000;
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+img { display: block; max-width: 100%; }
+
+/* ---------- Header / Nav ---------- */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.6em 1.5em;
+}
+
+.nav-logo {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #ffa500;
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 0.4em 0.9em;
+  border-radius: 5px;
+  font-size: 0.92em;
+  color: #fff;
+  transition: background-color 0.25s, color 0.25s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background-color: #ffa500;
+  color: #000;
+}
+
+/* Mobile nav toggle (pure CSS) */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 2px solid #ffa500;
+  color: #ffa500;
+  font-size: 1.4em;
+  padding: 0.15em 0.5em;
+  cursor: pointer;
+  border-radius: 5px;
+  line-height: 1;
+}
+
+/* ---------- Hero / Carousel ---------- */
+.hero {
+  height: 100vh;
+  min-height: 400px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  animation: slideShow 30s infinite;
+}
+
+@keyframes slideShow {
+  0%   { background-image: url('contenido/Fruta fresca/2019-04-25 12.49.27.jpg'); }
+  20%  { background-image: url('contenido/Azucar/Copilot_20260421_114039.png'); }
+  40%  { background-image: url('contenido/Catalogo de frutas/GUANABANA.jpg'); }
+  60%  { background-image: url('contenido/deshidratados/IMG_1014.JPG'); }
+  80%  { background-image: url('contenido/pulpa de fruta/guanabana yogur.jpg'); }
+  100% { background-image: url('contenido/Fruta fresca/2019-04-25 12.50.46.jpg'); }
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* Static hero for secondary pages */
+.hero-static {
+  height: 55vh;
+  min-height: 280px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-static::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5em;
+}
+
+.hero-content h1 {
+  font-size: 3em;
+  margin: 0 0 0.3em;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+}
+
+.hero-content p {
+  font-size: 1.2em;
+  max-width: 700px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+/* ---------- Main content wrapper ---------- */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3em 1.5em 4em;
+}
+
+/* ---------- Section headings ---------- */
+.section-title {
+  font-size: 2em;
+  color: #ffa500;
+  margin-bottom: 0.4em;
+  border-left: 5px solid #ffa500;
+  padding-left: 0.5em;
+}
+
+.section-text {
+  font-size: 1.05em;
+  max-width: 860px;
+  margin-bottom: 2em;
+  color: #ddd;
+  white-space: pre-line;
+}
+
+/* ---------- Category cards (index) ---------- */
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2em;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  min-height: 100px;
+  background: rgba(255, 165, 0, 0.9);
+  padding: 1.2em;
+  color: #000;
+  text-align: center;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1em;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.category-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 24px rgba(255,165,0,0.5);
+}
+
+.category-card .cat-icon {
+  font-size: 2em;
+  margin-bottom: 0.3em;
+}
+
+/* ---------- Image gallery grid ---------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.2em;
+  margin-top: 2em;
+}
+
+.gallery-item {
+  border-radius: 10px;
+  overflow: hidden;
+  background: #111;
+  position: relative;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 28px rgba(255,165,0,0.35);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-item .img-caption {
+  padding: 0.5em 0.8em;
+  font-size: 0.88em;
+  color: #ffa500;
+  background: #111;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ---------- Colaboradores / Team cards ---------- */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5em;
+  margin-top: 2em;
+}
+
+.team-card {
+  background: #111;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 28px rgba(255,165,0,0.35);
+}
+
+.team-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.team-card .team-name {
+  padding: 0.7em;
+  color: #ffa500;
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+/* ---------- Azucar sub-types ---------- */
+.azucar-types {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2em;
+  margin-top: 2em;
+}
+
+.azucar-card {
+  background: #111;
+  border-radius: 12px;
+  padding: 1.5em;
+  border-left: 4px solid #ffa500;
+}
+
+.azucar-card h3 {
+  color: #ffa500;
+  margin-top: 0;
+}
+
+.azucar-card p {
+  color: #ccc;
+  font-size: 0.95em;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background-color: #111;
+  border-top: 2px solid #ffa500;
+  text-align: center;
+  padding: 2em 1.5em;
+  color: #aaa;
+  font-size: 0.9em;
+}
+
+footer .footer-brand {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #ffa500;
+  margin-bottom: 0.4em;
+}
+
+footer a {
+  color: #ffa500;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .nav-toggle { display: block; }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding: 0.5em 0 1em;
+    background: rgba(0,0,0,0.95);
+  }
+
+  .nav-links.open { display: flex; }
+
+  .nav-inner { flex-wrap: wrap; }
+
+  .hero-content h1 { font-size: 2em; }
+  .hero-static { height: 40vh; }
+
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .gallery-item img { height: 160px; }
+
+  .categories { gap: 0.8em; }
+  .category-card { width: 140px; font-size: 0.9em; }
+
+  .azucar-types { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+
+  .section-title { font-size: 1.5em; }
+}
