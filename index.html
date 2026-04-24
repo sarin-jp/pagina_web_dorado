@@ -3,38 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dorado Division</title>
+  <title>Dorado Division - Inicio</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: Arial, sans-serif;
-      color: #ffffff;
+      color: #fff;
+      background-color: #000;
+      line-height: 1.6;
     }
 
     header {
       position: fixed;
+      top: 0;
       width: 100%;
-      padding: 1em;
-      display: flex;
-      justify-content: space-around;
-      background: #333;
       z-index: 1000;
+      display: flex;
+      justify-content: center;
+      padding: 1em 0;
+      background: rgba(0, 0, 0, 0.8);
     }
 
-    .tab {
-      color: white;
+    .nav-link {
+      margin: 0 15px;
       text-decoration: none;
+      color: white;
       font-size: 1em;
-      padding: 10px 15px;
-      cursor: pointer;
-      transition: background 0.3s, color 0.3s;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
     }
 
-    .tab:hover,
-    .tab.active {
-      background: #f59e0b;
-      color: #fff;
+    .nav-link:hover {
+      background-color: #ffa500;
+      color: #000;
     }
 
     section {
@@ -43,9 +45,23 @@
       justify-content: center;
       align-items: center;
       text-align: center;
+      padding: 20px;
       background-size: cover;
       background-position: center;
       position: relative;
+    }
+
+    section.carousel {
+      animation: slideShow 30s infinite;
+    }
+
+    @keyframes slideShow {
+      0% { background-image: url('https://github.com/sarin-jp/pagina_web_dorado/blob/main/contenido/Fruta%20fresca/2019-04-25%2012.49.27.jpg?raw=true'); }
+      20% { background-image: url('https://github.com/sarin-jp/pagina_web_dorado/blob/main/contenido/Azucar/Copilot_20260421_113838.png?raw=true'); }
+      40% { background-image: url('https://github.com/sarin-jp/pagina_web_dorado/blob/main/contenido/Catalogo%20de%20frutas/GUANABANA.jpg?raw=true'); }
+      60% { background-image: url('https://github.com/sarin-jp/pagina_web_dorado/blob/main/contenido/deshidratados/IMG_1014.JPG?raw=true'); }
+      80% { background-image: url('https://github.com/sarin-jp/pagina_web_dorado/blob/main/contenido/pulpa%20de%20fruta/guanabana%20yogur.jpg?raw=true'); }
+      100% { background-image: url('https://github.com/sarin-jp/pagina_web_dorado/blob/main/contenido/Fruit%20fresca/2019-04-25%2012.50.40.jpg?raw=true'); }
     }
 
     section::before {
@@ -55,32 +71,59 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(5px);
+      background: rgba(0, 0, 0, 0.4);
       z-index: 1;
     }
 
     .content {
       position: relative;
-      z-index: 10;
-      max-width: 70%;
+      z-index: 2;
+      max-width: 80%;
     }
 
     h1 {
       font-size: 3em;
       font-weight: bold;
-      margin: 0 0 20px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin: 20px 0 10px;
     }
 
     p {
-      font-size: 1.2em;
-      line-height: 1.6;
-      margin: 0;
+      font-size: 1.1em;
+    }
+
+    .categories {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 50px;
+    }
+
+    .category-card {
+      background-color: #444;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 1.3em;
+      text-align: center;
+      width: 200px;
+      transition: transform 0.3s;
+    }
+
+    .category-card:hover {
+      transform: scale(1.1);
+      background-color: #f59e0b;
+      color: black;
     }
 
     footer {
-      background: #222;
       text-align: center;
+      background-color: #222;
       padding: 20px 0;
       color: white;
     }
@@ -88,68 +131,41 @@
 </head>
 <body>
   <header>
-    <a href="#inicio" class="tab">Inicio</a>
-    <a href="#azucar" class="tab">Azúcar</a>
-    <a href="#catalogo" class="tab">Catálogo de Frutas</a>
-    <a href="#colaboradores" class="tab">Colaboradores</a>
-    <a href="#deshidratados" class="tab">Deshidratados</a>
-    <a href="#fresca" class="tab">Fruta Fresca</a>
-    <a href="#pulpa" class="tab">Pulpa de Fruta</a>
+    <a href="index.html" class="nav-link">Inicio</a>
+    <a href="azucar.html" class="nav-link">Azúcar</a>
+    <a href="catalogo.html" class="nav-link">Catálogo de Frutas</a>
+    <a href="colaboradores.html" class="nav-link">Colaboradores</a>
+    <a href="deshidratados.html" class="nav-link">Deshidratados</a>
+    <a href="fresca.html" class="nav-link">Fruta Fresca</a>
+    <a href="pulpa.html" class="nav-link">Pulpa de Fruta</a>
   </header>
 
-  <!-- Inicio -->
-  <section id="inicio" style="background-image: url('https://via.placeholder.com/1920x1080');">
+  <!-- Slideshow Section -->
+  <section class="carousel">
     <div class="content">
-      <h1>Conecta con Dorado Division</h1>
-      <p>Transformamos frutas en experiencias, creando valor a través de calidad, frescura y sostenibilidad.</p>
+      <h1>Bienvenido a Dorado Division</h1>
+      <p>
+        Dorado Division es una empresa familiar fundada en 1992 en el corazón del Valle del Cauca, Colombia, especializada en 
+        la exportación de frutas tropicales. Desde nuestros inicios, hemos trabajado con productores locales comprometidos 
+        con la calidad y la sostenibilidad.
+      </p>
+      <p>
+        A lo largo de las décadas, hemos construido alianzas estratégicas con productores en Perú, Ecuador, Brasil y más 
+        regiones de América Latina, llevando lo mejor de las frutas tropicales a todo el mundo.
+      </p>
     </div>
   </section>
 
-  <!-- Azúcar -->
-  <section id="azucar" style="background-image: url('https://github.com/sarin-jp/pagina_web_dorado/blob/main/contenido/Azucar/Copilot_20260421_113838.png?raw=true');">
-    <div class="content">
-      <h1>Azúcar</h1>
-      <p>Presentamos nuestra línea de azúcar de calidad premium para la industria y el consumo institucional. La mejor selección para deleitar el paladar.</p>
-    </div>
-  </section>
-
-  <!-- Catálogo de Frutas -->
-  <section id="catalogo" style="background-image: url('https://github.com/sarin-jp/pagina_web_dorado/blob/main/contenido/Catalogo%20de%20frutas/CURUBA.jpg?raw=true');">
-    <div class="content">
-      <h1>Catálogo de Frutas</h1>
-      <p>Frutas tropicales cuidadosamente seleccionadas para satisfacer cada temporada y variedad de gustos. De nuestros campos a tu hogar.</p>
-    </div>
-  </section>
-
-  <!-- Colaboradores -->
-  <section id="colaboradores" style="background-image: url('https://github.com/sarin-jp/pagina_web_dorado/blob/main/contenido/colaboradores/logo_1.png?raw=true');">
-    <div class="content">
-      <h1>Colaboradores</h1>
-      <p>Trabajamos con los mejores aliados estratégicos para garantizar frescura y calidad en cada producto.</p>
-    </div>
-  </section>
-
-  <!-- Deshidratados -->
-  <section id="deshidratados" style="background-image: url('https://github.com/sarin-jp/pagina_web_dorado/blob/main/contenido/deshidratados/IMG_0997.JPG?raw=true');">
-    <div class="content">
-      <h1>Deshidratados</h1>
-      <p>Nuestros deshidratados representan lo mejor del proceso de frescura y conservación de la naturaleza.</p>
-    </div>
-  </section>
-
-  <!-- Fruta Fresca -->
-  <section id="fresca" style="background-image: url('https://github.com/sarin-jp/pagina_web_dorado/blob/main/contenido/Fruta%20fresca/2019-04-25%2012.49.40.jpg?raw=true');">
-    <div class="content">
-      <h1>Fruta Fresca</h1>
-      <p>Frutas frescas seleccionadas con dedicación para mantener toda su pureza y calidad natural.</p>
-    </div>
-  </section>
-
-  <!-- Pulpa de Fruta -->
-  <section id="pulpa" style="background-image: url('https://github.com/sarin-jp/pagina_web_dorado/blob/main/contenido/pulpa%20de%20fruta/guanabana%20yogur.jpg?raw=true');">
-    <div class="content">
-      <h1>Pulpa de Fruta</h1>
-      <p>La pulpa de fruta más fresca y de mejor calidad para enriquecer tus recetas diarias con el sabor natural de lo mejor del trópico.</p>
+  <!-- Categories Section -->
+  <section style="background-color: #222; padding: 50px; color: white;">
+    <h2>Explora nuestras categorías</h2>
+    <div class="categories">
+      <a href="azucar.html" class="category-card">Azúcar</a>
+      <a href="catalogo.html" class="category-card">Catálogo de Frutas</a>
+      <a href="colaboradores.html" class="category-card">Colaboradores</a>
+      <a href="deshidratados.html" class="category-card">Deshidratados</a>
+      <a href="fresca.html" class="category-card">Fruta Fresca</a>
+      <a href="pulpa.html" class="category-card">Pulpa de Fruta</a>
     </div>
   </section>
 
