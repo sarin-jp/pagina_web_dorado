@@ -1,265 +1,160 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dorado División</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dorado Division</title>
   <style>
-    :root{
-      --bg:#0b1020;
-      --panel:#111827;
-      --card:#182133;
-      --text:#e5e7eb;
-      --muted:#9ca3af;
-      --gold:#f59e0b;
-      --gold2:#fbbf24;
-      --line:#263247;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg,#0a0f1e,var(--bg));
-      color:var(--text);
-    }
-    header{
-      position:sticky; top:0; z-index:50;
-      background:rgba(10,15,30,.9);
-      backdrop-filter: blur(6px);
-      border-bottom:1px solid var(--line);
-    }
-    .wrap{max-width:1200px; margin:auto; padding:14px 18px;}
-    .row{display:flex; align-items:center; justify-content:space-between; gap:10px;}
-    .logo{font-weight:700; color:var(--gold2); letter-spacing:.4px}
-    nav{display:flex; flex-wrap:wrap; gap:8px;}
-    .tab{
-      border:1px solid #334155;
-      background:#1f2937;
-      color:#e5e7eb;
-      border-radius:10px;
-      padding:8px 12px;
-      cursor:pointer;
-      font-size:14px;
-    }
-    .tab:hover,.tab.active{
-      background:linear-gradient(90deg,var(--gold),var(--gold2));
-      color:#111827;
-      border-color:transparent;
-      font-weight:700;
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: #ffffff;
     }
 
-    main{max-width:1200px; margin:20px auto; padding:0 18px 30px;}
-    .panel{display:none;}
-    .panel.active{display:block;}
-    .hero{
-      background:var(--panel);
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:22px;
-      margin-bottom:16px;
+    header {
+      position: fixed;
+      width: 100%;
+      padding: 1em;
+      display: flex;
+      justify-content: space-around;
+      background: #333;
+      z-index: 1000;
     }
-    h1,h2,h3{margin:0 0 10px}
-    .muted{color:var(--muted); line-height:1.6}
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:14px;
-      margin-top:14px;
+
+    .tab {
+      color: white;
+      text-decoration: none;
+      font-size: 1em;
+      padding: 10px 15px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
     }
-    .card{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius:14px;
-      overflow:hidden;
+
+    .tab:hover,
+    .tab.active {
+      background: #f59e0b;
+      color: #fff;
     }
-    .card img{
-      width:100%;
-      height:180px;
-      object-fit:cover;
-      display:block;
-      background:#0b1220;
+
+    section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+      position: relative;
     }
-    .card .txt{padding:10px 12px}
-    .badge{
-      display:inline-block;
-      background:#0f172a;
-      border:1px solid #374151;
-      color:#cbd5e1;
-      border-radius:999px;
-      padding:4px 10px;
-      font-size:12px;
-      margin-bottom:8px;
+
+    section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(5px);
+      z-index: 1;
     }
-    footer{
-      margin-top:24px;
-      padding:18px;
-      border-top:1px solid var(--line);
-      color:var(--muted);
-      text-align:center;
+
+    .content {
+      position: relative;
+      z-index: 10;
+      max-width: 70%;
     }
-    .who{
-      white-space:pre-line;
-      background:#0f172a;
-      border:1px solid var(--line);
-      border-radius:12px;
-      padding:14px;
-      margin-top:10px;
+
+    h1 {
+      font-size: 3em;
+      font-weight: bold;
+      margin: 0 0 20px;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    footer {
+      background: #222;
+      text-align: center;
+      padding: 20px 0;
+      color: white;
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="wrap row">
-      <div class="logo">Dorado División</div>
-      <nav>
-        <button class="tab active" data-tab="inicio">Inicio</button>
-        <button class="tab" data-tab="azucar">Azúcar</button>
-        <button class="tab" data-tab="catalogo">Catálogo de frutas</button>
-        <button class="tab" data-tab="colaboradores">Colaboradores</button>
-        <button class="tab" data-tab="deshidratados">Deshidratados</button>
-        <button class="tab" data-tab="fresca">Fruta fresca</button>
-        <button class="tab" data-tab="pulpa">Pulpa de fruta</button>
-      </nav>
-    </div>
+    <a href="#inicio" class="tab">Inicio</a>
+    <a href="#azucar" class="tab">Azúcar</a>
+    <a href="#catalogo" class="tab">Catálogo de Frutas</a>
+    <a href="#colaboradores" class="tab">Colaboradores</a>
+    <a href="#deshidratados" class="tab">Deshidratados</a>
+    <a href="#fresca" class="tab">Fruta Fresca</a>
+    <a href="#pulpa" class="tab">Pulpa de Fruta</a>
   </header>
 
-  <main>
-    <!-- INICIO -->
-    <section id="inicio" class="panel active">
-      <div class="hero">
-        <h1>Bienvenidos a Dorado División</h1>
-        <p class="muted">
-          Productos naturales y derivados de fruta con enfoque en calidad, inocuidad y presentación.
-        </p>
-        <span class="badge">Quiénes somos</span>
-        <div class="who">
-Somos Dorado División, un equipo enfocado en la transformación y comercialización de productos de fruta.
-Trabajamos con procesos de selección, empaque y conservación para ofrecer soluciones a clientes y aliados.
+  <!-- Inicio -->
+  <section id="inicio" style="background-image: url('https://via.placeholder.com/1920x1080');">
+    <div class="content">
+      <h1>Conecta con Dorado Division</h1>
+      <p>Transformamos frutas en experiencias, creando valor a través de calidad, frescura y sostenibilidad.</p>
+    </div>
+  </section>
 
-Nuestra misión es entregar productos confiables, de excelente calidad y con atención cercana.
-Nuestra visión es crecer junto a nuestros colaboradores, impulsando innovación y valor en cada línea de producto.
-        </div>
-      </div>
-    </section>
+  <!-- Azúcar -->
+  <section id="azucar" style="background-image: url('https://github.com/sarin-jp/pagina_web_dorado/blob/main/contenido/Azucar/Copilot_20260421_113838.png?raw=true');">
+    <div class="content">
+      <h1>Azúcar</h1>
+      <p>Presentamos nuestra línea de azúcar de calidad premium para la industria y el consumo institucional. La mejor selección para deleitar el paladar.</p>
+    </div>
+  </section>
 
-    <!-- AZUCAR -->
-    <section id="azucar" class="panel">
-      <div class="hero">
-        <h2>Azúcar</h2>
-        <p class="muted">Presentación de línea y producto.</p>
-        <div class="grid">
-          <article class="card">
-            <img src="contenido/Azucar/Copilot_20260421_113838.png" alt="Azúcar 1">
-            <div class="txt"><h3>Línea Azúcar</h3></div>
-          </article>
-          <article class="card">
-            <img src="contenido/Azucar/Copilot_20260421_114039.png" alt="Azúcar 2">
-            <div class="txt"><h3>Presentación comercial</h3></div>
-          </article>
-        </div>
-      </div>
-    </section>
+  <!-- Catálogo de Frutas -->
+  <section id="catalogo" style="background-image: url('https://github.com/sarin-jp/pagina_web_dorado/blob/main/contenido/Catalogo%20de%20frutas/CURUBA.jpg?raw=true');">
+    <div class="content">
+      <h1>Catálogo de Frutas</h1>
+      <p>Frutas tropicales cuidadosamente seleccionadas para satisfacer cada temporada y variedad de gustos. De nuestros campos a tu hogar.</p>
+    </div>
+  </section>
 
-    <!-- CATALOGO DE FRUTAS -->
-    <section id="catalogo" class="panel">
-      <div class="hero">
-        <h2>Catálogo de frutas</h2>
-        <p class="muted">Selección destacada de sabores y referencias.</p>
-        <div class="grid">
-          <article class="card"><img src="contenido/Catalogo de frutas/COCO.jpg" alt="Coco"><div class="txt"><h3>Coco</h3></div></article>
-          <article class="card"><img src="contenido/Catalogo de frutas/CORONILLA2.jpg" alt="Coronilla"><div class="txt"><h3>Coronilla</h3></div></article>
-          <article class="card"><img src="contenido/Catalogo de frutas/CURUBA.jpg" alt="Curuba"><div class="txt"><h3>Curuba</h3></div></article>
-          <article class="card"><img src="contenido/Catalogo de frutas/GUANABANA.jpg" alt="Guanábana"><div class="txt"><h3>Guanábana</h3></div></article>
-          <article class="card"><img src="contenido/Catalogo de frutas/LULO.jpg" alt="Lulo"><div class="txt"><h3>Lulo</h3></div></article>
-          <article class="card"><img src="contenido/Catalogo de frutas/MANGO.jpg" alt="Mango"><div class="txt"><h3>Mango</h3></div></article>
-          <article class="card"><img src="contenido/Catalogo de frutas/MARACUYA.jpg" alt="Maracuyá"><div class="txt"><h3>Maracuyá</h3></div></article>
-          <article class="card"><img src="contenido/Catalogo de frutas/PAPAYA2.jpg" alt="Papaya"><div class="txt"><h3>Papaya</h3></div></article>
-        </div>
-      </div>
-    </section>
+  <!-- Colaboradores -->
+  <section id="colaboradores" style="background-image: url('https://github.com/sarin-jp/pagina_web_dorado/blob/main/contenido/colaboradores/logo_1.png?raw=true');">
+    <div class="content">
+      <h1>Colaboradores</h1>
+      <p>Trabajamos con los mejores aliados estratégicos para garantizar frescura y calidad en cada producto.</p>
+    </div>
+  </section>
 
-    <!-- COLABORADORES -->
-    <section id="colaboradores" class="panel">
-      <div class="hero">
-        <h2>Colaboradores</h2>
-        <p class="muted">Alianzas y marcas vinculadas.</p>
-        <div class="grid">
-          <article class="card"><img src="contenido/colaboradores/2110723.jpeg" alt="Colaborador 1"><div class="txt"><h3>Aliado 1</h3></div></article>
-          <article class="card"><img src="contenido/colaboradores/dionis_1.jpg" alt="Colaborador 2"><div class="txt"><h3>Aliado 2</h3></div></article>
-          <article class="card"><img src="contenido/colaboradores/hot3558-1.jpg" alt="Colaborador 3"><div class="txt"><h3>Aliado 3</h3></div></article>
-          <article class="card"><img src="contenido/colaboradores/logo_1.png" alt="Colaborador 4"><div class="txt"><h3>Aliado 4</h3></div></article>
-          <article class="card"><img src="contenido/colaboradores/Screenshot_1.jpg" alt="Colaborador 5"><div class="txt"><h3>Aliado 5</h3></div></article>
-          <article class="card"><img src="contenido/colaboradores/Screenshot_3.png" alt="Colaborador 6"><div class="txt"><h3>Aliado 6</h3></div></article>
-        </div>
-      </div>
-    </section>
+  <!-- Deshidratados -->
+  <section id="deshidratados" style="background-image: url('https://github.com/sarin-jp/pagina_web_dorado/blob/main/contenido/deshidratados/IMG_0997.JPG?raw=true');">
+    <div class="content">
+      <h1>Deshidratados</h1>
+      <p>Nuestros deshidratados representan lo mejor del proceso de frescura y conservación de la naturaleza.</p>
+    </div>
+  </section>
 
-    <!-- DESHIDRATADOS -->
-    <section id="deshidratados" class="panel">
-      <div class="hero">
-        <h2>Deshidratados</h2>
-        <p class="muted">Proceso y resultado final de productos deshidratados.</p>
-        <div class="grid">
-          <article class="card"><img src="contenido/deshidratados/IMG_0997.JPG" alt="Deshidratado 1"><div class="txt"><h3>Proceso</h3></div></article>
-          <article class="card"><img src="contenido/deshidratados/IMG_0999.JPG" alt="Deshidratado 2"><div class="txt"><h3>Proceso</h3></div></article>
-          <article class="card"><img src="contenido/deshidratados/IMG_1014.JPG" alt="Deshidratado 3"><div class="txt"><h3>Proceso</h3></div></article>
-          <article class="card"><img src="contenido/deshidratados/PHOTO-2023-07-14-12-49-37.jpg" alt="Deshidratado 4"><div class="txt"><h3>Bandejas</h3></div></article>
-          <article class="card"><img src="contenido/deshidratados/PHOTO-2023-12-01-11-12-53.jpg" alt="Deshidratado 5"><div class="txt"><h3>Producto</h3></div></article>
-          <article class="card"><img src="contenido/deshidratados/PHOTO-2023-12-06-10-15-27.jpg" alt="Deshidratado 6"><div class="txt"><h3>Producto final</h3></div></article>
-        </div>
-      </div>
-    </section>
+  <!-- Fruta Fresca -->
+  <section id="fresca" style="background-image: url('https://github.com/sarin-jp/pagina_web_dorado/blob/main/contenido/Fruta%20fresca/2019-04-25%2012.49.40.jpg?raw=true');">
+    <div class="content">
+      <h1>Fruta Fresca</h1>
+      <p>Frutas frescas seleccionadas con dedicación para mantener toda su pureza y calidad natural.</p>
+    </div>
+  </section>
 
-    <!-- FRUTA FRESCA -->
-    <section id="fresca" class="panel">
-      <div class="hero">
-        <h2>Fruta fresca</h2>
-        <p class="muted">Selección, clasificación y empaque.</p>
-        <div class="grid">
-          <article class="card"><img src="contenido/Fruta fresca/2019-04-25 12.40.13.jpg" alt="Fruta fresca 1"><div class="txt"><h3>Selección</h3></div></article>
-          <article class="card"><img src="contenido/Fruta fresca/2019-04-25 12.42.53.jpg" alt="Fruta fresca 2"><div class="txt"><h3>Calidad</h3></div></article>
-          <article class="card"><img src="contenido/Fruta fresca/2019-04-25 12.49.21.jpg" alt="Fruta fresca 3"><div class="txt"><h3>Línea</h3></div></article>
-          <article class="card"><img src="contenido/Fruta fresca/2019-04-25 12.50.46.jpg" alt="Fruta fresca 4"><div class="txt"><h3>Empaque</h3></div></article>
-          <article class="card"><img src="contenido/Fruta fresca/2019-04-25 12.54.00.jpg" alt="Fruta fresca 5"><div class="txt"><h3>Presentación</h3></div></article>
-          <article class="card"><img src="contenido/Fruta fresca/2019-04-25 12.55.40.jpg" alt="Fruta fresca 6"><div class="txt"><h3>Almacenamiento</h3></div></article>
-        </div>
-      </div>
-    </section>
+  <!-- Pulpa de Fruta -->
+  <section id="pulpa" style="background-image: url('https://github.com/sarin-jp/pagina_web_dorado/blob/main/contenido/pulpa%20de%20fruta/guanabana%20yogur.jpg?raw=true');">
+    <div class="content">
+      <h1>Pulpa de Fruta</h1>
+      <p>La pulpa de fruta más fresca y de mejor calidad para enriquecer tus recetas diarias con el sabor natural de lo mejor del trópico.</p>
+    </div>
+  </section>
 
-    <!-- PULPA DE FRUTA -->
-    <section id="pulpa" class="panel">
-      <div class="hero">
-        <h2>Pulpa de fruta</h2>
-        <p class="muted">Productos, recetas y proceso productivo.</p>
-        <div class="grid">
-          <article class="card"><img src="contenido/pulpa de fruta/_DSC7206.jpg" alt="Pulpa 1"><div class="txt"><h3>Bebidas</h3></div></article>
-          <article class="card"><img src="contenido/pulpa de fruta/_DSC7213.jpg" alt="Pulpa 2"><div class="txt"><h3>Presentación</h3></div></article>
-          <article class="card"><img src="contenido/pulpa de fruta/_DSC7435.jpg" alt="Pulpa 3"><div class="txt"><h3>Producto</h3></div></article>
-          <article class="card"><img src="contenido/pulpa de fruta/_DSC7443.jpg" alt="Pulpa 4"><div class="txt"><h3>Línea de venta</h3></div></article>
-          <article class="card"><img src="contenido/pulpa de fruta/con cafe.jpg" alt="Pulpa 5"><div class="txt"><h3>Con café</h3></div></article>
-          <article class="card"><img src="contenido/pulpa de fruta/desayuno.jpg" alt="Pulpa 6"><div class="txt"><h3>Desayuno</h3></div></article>
-          <article class="card"><img src="contenido/pulpa de fruta/DSC_5823.png" alt="Pulpa 7"><div class="txt"><h3>Canasta</h3></div></article>
-          <article class="card"><img src="contenido/pulpa de fruta/PHOTO-2026-04-20-17-19-49 (3).jpg" alt="Pulpa 8"><div class="txt"><h3>Pulpa lista</h3></div></article>
-        </div>
-      </div>
-    </section>
-
-    <footer>© 2026 Dorado División — Todos los derechos reservados.</footer>
-  </main>
-
-  <script>
-    const tabs = document.querySelectorAll('.tab');
-    const panels = document.querySelectorAll('.panel');
-    tabs.forEach(tab=>{
-      tab.addEventListener('click', ()=>{
-        tabs.forEach(t=>t.classList.remove('active'));
-        tab.classList.add('active');
-        const id = tab.getAttribute('data-tab');
-        panels.forEach(p=>p.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-        window.scrollTo({top:0,behavior:'smooth'});
-      });
-    });
-  </script>
+  <footer>
+    © 2026 Dorado Division | Transformando frutas, creando valor.
+  </footer>
 </body>
 </html>
